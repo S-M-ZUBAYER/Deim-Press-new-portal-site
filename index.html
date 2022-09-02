@@ -16,7 +16,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg bg-light">
                     <div class="container-fluid">
-                        <a class="navbar-brand ms-3"> <samp class="bg-warning px-3 py-2 rounded-pill">SSS</samp>
+                        <a class="navbar-brand"> <samp class="bg-warning px-3 py-2 rounded-pill">SSS</samp>
                             News</a>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -42,15 +42,54 @@
     </header>
 
     <main>
+        <section class="container">
+            <!-- show all category_name as menu bar  -->
+            <div class=" text-center text-muted">
+                <div id="news-menu" class="row">
 
-        <!-- show all category_name as menu bar  -->
-        <div class="container text-center text-muted">
-            <div id="news-menu" class="row">
+                </div>
+            </div>
+
+            <!-- show the message to count the news of each categories news  -->
+            <div>
+                <h5 id="count-Info" class="pt-0 pb-4 bg-white"></h5>
+            </div>
+
+            <!-- extra section -->
+            <div class="container my-3">
+                <div class="row">
+                    <div class="col text-start d-flex">
+                        <h5 class="mt-2">Sort By View:</h5>
+                        <div class="btn-group ms-2">
+                            <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Defaut
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Defaut</a></li>
+                                <li><a class="dropdown-item" href="#">Veiws</a></li>
+                                <li><a class="dropdown-item" href="#">Rating</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col text-end">
+                        <div>
+                            <button type="button" class="btn btn-info">Today's Pick</button>
+                            <button type="button" class="btn btn-outline-info">Trending</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- display the news in a card  -->
+            <div id="display-news">
 
             </div>
-        </div>
 
-        <!-- show the message to count the news of each categories news  -->
+
+        </section>
+
 
     </main>
 
