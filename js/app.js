@@ -63,12 +63,12 @@ const countCategories = async (id) => {
     }
 
     Allnews.forEach(news => {
-        const { total_view, title, image_url, details } = news;
+        const { _id, total_view, title, image_url, details } = news;
         const { name, published_date, img } = news.author;
         const cardField = document.createElement('div');
         cardField.innerHTML =
             `
-            <div class="card my-5 w-100">
+        <div onclick="showModel('${_id}')" class="card my-5 w-100 " data-bs-toggle="modal" data-bs-target="#newsInModal">
             <div class="row g-0 p-3">
                 <div class="col-md-4 rounded">
                     <img src="${image_url}" class="img-fluid rounded-start" alt="...">
@@ -135,5 +135,11 @@ const countCategories = async (id) => {
     })
 }
 
+// show the news details in modal 
+const showModel = async (news_id) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/news/${news_id}`);
+    const data = await res.json();
+    const modalData = (data.data);
+}
 
 
