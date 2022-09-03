@@ -10,6 +10,8 @@
                                                              ----------------------------------------->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/6c5484681e.js" crossorigin="anonymous"></script>
 </head>
 
 <body style="background-color:antiquewhite ;">
@@ -20,19 +22,29 @@
         <!------------------------------- navbar part starting point
                                                                 --------------------------------->
         <section>
-            <div class="container">
+            <div class="container mt-3">
                 <nav class="navbar navbar-expand-lg" style="background-color:antiquewhite ;">
                     <div class="container-fluid">
-                        <a class="navbar-brand fw-bold"> <samp class="bg-warning px-3 py-2 rounded-pill">Diem</samp>
+                        <a class="navbar-brand fw-bold py-2"> <span
+                                class="bg-warning px-3 py-2 rounded-pill">Diem</span>
                             Press</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
                         <div class="collapse navbar-collapse  d-sm-block fw-semibold" id="navbarSupportedContent">
-                            <ul class="navbar-nav ms-auto  mb-2 mb-lg-0">
+                            <ul class="navbar-nav ms-auto  mb-2 mb-lg-0 d-flex align-items-center">
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="#">News</a>
                                 </li>
                                 <li class="nav-item">
                                     <a onclick="showQuestionsAns()" class="nav-link active"
                                         href="#questions-field">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active h-25 w-25" aria-current="page" href="#"><img class=""
+                                            src="./img/Avatar (1).png" alt=""></a>
                                 </li>
                             </ul>
                         </div>
@@ -131,7 +143,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content" style="background-color:azure ;">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="newsInModalLabel">Modal title</h5>
+                            <h5 class="modal-title text-info text-center" id="newsInModalLabel">Modal title</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div id="modal-body" class="modal-body">
