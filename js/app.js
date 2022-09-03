@@ -89,8 +89,8 @@ const countCategories = async (id) => {
                                         </div>   
                                     </div>
                                 </div>
-                                <div class="col">${total_view ? total_view : "Data Not Found"}</div>
-                                <div class="col">
+                                <div class="col">${total_view ? total_view + "k" : "Data Not Found"}</div>
+                                <div class="col d-lg-block d-sm-none d-xs-none">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-star-fill text-warning" viewBox="0 0 16 16">
                                 <path
@@ -139,7 +139,34 @@ const countCategories = async (id) => {
 const showModel = async (news_id) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/news/${news_id}`);
     const data = await res.json();
-    const modalData = (data.data);
+    const modalData = (data.data[0]);
+    const { title, total_view, image_url, details } = modalData;
+    const { name, published_date, img } = modalData.author;
+    const modalTitle = document.getElementById('newsInModalLabel');
+    modalTitle.innerText = `${modalData.title}`
+    const modalBody = document.getElementById('modal-body');
+    modalBody.innerHTML =
+        `
+        <img src="${image_url}" class="img-fluid rounded-start" alt="...">
+        <p class="card-text">${details.length > 350 ? details.slice(0, 350) + '...' : details}
+                        </p>
+        <div class="d-flex flex-row mb-3">
+            <div class="p-2 ">
+                <div class="d-flex flex-column">
+                    <div>
+                        <img class="rounded-circle w-25 h-25" src="${img ? img : "Data Not Available"}<" alt="">
+                    </div>
+                     <div class="ps-2">${name ? name : "Data Not Available"}</div>
+                </div>    
+            </div>
+            <div class="p-2 d-flex align-items-center">
+            ${total_view ? total_view + 'K' : "Data Not Available"}
+            </div>
+        </div>
+        `
+    const published = document.getElementById('data');
+    published.innerText =
+        `${published_date ? published_date : "Data Not Available"}`
 }
 
 
