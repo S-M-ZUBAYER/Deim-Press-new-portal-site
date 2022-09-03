@@ -1,6 +1,12 @@
+// sort data 
+const sortData = () => {
+
+}
+
 
 // loadData from API server 
 const loadData = async () => {
+
     try {
         const res = await fetch('https://openapi.programming-hero.com/api/news/categories');
         const data = await res.json();
@@ -22,7 +28,7 @@ const showCategory = async (AllMenu) => {
         newsMenuDiv.classList.add('py-3');
         newsMenuDiv.innerHTML =
             `
-        <h6 onclick="countCategories('${menu.category_id}')" >${menu.category_name ? menu.category_name : "No Name"}</h6>
+        <h6  onclick="countCategories('${menu.category_id}')" >${menu.category_name ? menu.category_name : "No Name"}</h6>
         `
         newsMenuField.appendChild(newsMenuDiv);
     });
@@ -43,19 +49,28 @@ const sppinerLoad = (isLoading) => {
 // create a function for count 
 const countCategories = async (id) => {
     sppinerLoad(true);
-    const res = await fetch(`https://openapi.programming-hero.com/api/news/category/${id}`);
-    const data = await res.json();
-    const len = (data.data.length);
-    const countInfo = document.getElementById('count-Info');
-    countInfo.innerText =
-        `
-    ${len} items found for this category...
-    `;
-
-    // display the news in card 
+    try {
+        const res = await fetch(`https://openapi.programming-hero.com/api/news/category/${id}`);
+        const data = await res.json();
+        const len = (data.data.length);
+        const countInfo = document.getElementById('count-Info');
+        countInfo.innerText =
+            `
+        ${len} items found for this category...
+        `;
+        displayNews(data);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+// display the news in card 
+const displayNews = (data) => {
     const displayField = document.getElementById('display-news');
     displayField.innerHTML = '';
     const Allnews = data.data;
+    const questionField = document.getElementById('questions-field');
+    questionField.classList.add('d-none')
     sppinerLoad(false);
 
     // check the length and show the notification data available or not
@@ -67,6 +82,10 @@ const countCategories = async (id) => {
     else {
         notFound.classList.add('d-none');
     }
+    // sort all the arroy according the view numbers
+    const newarr = Allnews.sort(function (a, b) {
+        return b.total_view - a.total_view
+    });
 
     Allnews.forEach(news => {
         const { _id, total_view, title, image_url, details } = news;
@@ -153,7 +172,8 @@ const showModel = async (news_id) => {
     }
 }
 const modalDatadfd = (modalData) => {
-
+    const questionField = document.getElementById('questions-field');
+    questionField.classList.add('d-none')
     const { title, total_view, image_url, details } = modalData;
     const { name, published_date, img } = modalData.author;
     const modalTitle = document.getElementById('newsInModalLabel');
@@ -167,7 +187,7 @@ const modalDatadfd = (modalData) => {
         <div class="d-flex flex-row mb-3">
             <div class="p-2 ">
                 <div class="d-flex flex-column">
-                    <div>
+                    <div class="h-50 w-50">
                         <img class="rounded-circle w-25 h-25" src="${img ? img : "Data Not Available"}<" alt="">
                     </div>
                      <div class="ps-2">${name ? name : "Data Not Available"}</div>
@@ -181,6 +201,11 @@ const modalDatadfd = (modalData) => {
     const published = document.getElementById('data');
     published.innerText =
         `${published_date ? published_date : "Data Not Available"}`
+}
+
+const showQuestionsAns = () => {
+    const questionField = document.getElementById('questions-field');
+    questionField.classList.remove('d-none')
 }
 
 
