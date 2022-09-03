@@ -1,9 +1,15 @@
 
 // loadData from API server 
 const loadData = async () => {
-    const res = await fetch('https://openapi.programming-hero.com/api/news/categories');
-    const data = await res.json();
-    showCategory(data.data.news_category);
+    try {
+        const res = await fetch('https://openapi.programming-hero.com/api/news/categories');
+        const data = await res.json();
+        showCategory(data.data.news_category);
+    }
+    catch (error) {
+        console.log(error);
+    }
+
 }
 loadData();
 
@@ -137,9 +143,17 @@ const countCategories = async (id) => {
 
 // show the news details in modal 
 const showModel = async (news_id) => {
-    const res = await fetch(`https://openapi.programming-hero.com/api/news/${news_id}`);
-    const data = await res.json();
-    const modalData = (data.data[0]);
+    try {
+        const res = await fetch(`https://openapi.programming-hero.com/api/news/${news_id}`);
+        const data = await res.json();
+        modalDatadfd(data.data[0]);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+const modalDatadfd = (modalData) => {
+
     const { title, total_view, image_url, details } = modalData;
     const { name, published_date, img } = modalData.author;
     const modalTitle = document.getElementById('newsInModalLabel');
@@ -168,5 +182,6 @@ const showModel = async (news_id) => {
     published.innerText =
         `${published_date ? published_date : "Data Not Available"}`
 }
+
 
 
