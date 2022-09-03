@@ -28,7 +28,7 @@ const showCategory = async (AllMenu) => {
         newsMenuDiv.classList.add('py-3');
         newsMenuDiv.innerHTML =
             `
-        <h6  onclick="countCategories('${menu.category_id}')" >${menu.category_name ? menu.category_name : "No Name"}</h6>
+        <h6 class="btn border-0 fw-semibold"  onclick="countCategories('${menu.category_id}')" >${menu.category_name ? menu.category_name : "No Name"}</h6>
         `
         newsMenuField.appendChild(newsMenuDiv);
     });

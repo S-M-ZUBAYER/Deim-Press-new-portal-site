@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>News Portal</title>
+    <title>Diem Press</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
@@ -14,17 +14,18 @@
     <header>
         <section>
             <div class="container">
-                <nav class="navbar navbar-expand-lg bg-light">
+                <nav class="navbar navbar-expand-lg" style="background-color:antiquewhite ;">
                     <div class="container-fluid">
-                        <a class="navbar-brand"> <samp class="bg-warning px-3 py-2 rounded-pill">SSS</samp>
-                            News</a>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <a class="navbar-brand fw-bold"> <samp class="bg-warning px-3 py-2 rounded-pill">Diem</samp>
+                            Press</a>
+                        <div class="collapse navbar-collapse d-sm-block fw-semibold" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="#">News</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a onclick="showQuestionsAns()" class="nav-link" href="#questions-field">Blog</a>
+                                    <a onclick="showQuestionsAns()" class="nav-link active"
+                                        href="#questions-field">Blog</a>
                                 </li>
                                 <li class="nav-item h-25 w-25">
                                     <a class="nav-link" href="#"><img class="rounded-circle h-25 w-25"
@@ -87,7 +88,7 @@
                 <h3 class="text-center text-warning">Data not Available!!!</h3>
             </div>
 
-            <!-- display the news in a card  -->
+            <!-- show the spnner  -->
             <div id="spinnerId" class="text-center mt-5 d-none">
                 <div class="spinner-border text-secondary" role="status">
                     <span class="visually-hidden">Loading...</span>
@@ -99,6 +100,9 @@
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
+
+
+            <!-- display the news in a card  -->
             <div id="display-news">
 
             </div>
@@ -111,7 +115,7 @@
             <div class="modal fade" id="newsInModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                 aria-labelledby="newsInModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                    <div class="modal-content">
+                    <div class="modal-content" style="background-color:rgb(222, 232, 207) ;">
                         <div class="modal-header">
                             <h5 class="modal-title" id="newsInModalLabel">Modal title</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -132,99 +136,149 @@
         <!------------------------------------------
                                               Questions section Ending point  
                                                                      ------------------------------------------------->
-        <section id="questions-field" class="Question_sec d-none">
+        <section id="questions-field" class="Question_sec d-none my-3">
             <div class="container my-5">
                 <div class="heading text-center mb-5">
-                    <h1 class="fs-1 fw-bold">
-                        Frequently Asked Questions
+                    <h1 class="fs-1 fw-bold text-info">
+                        Understanding the ES6 Features of JavaScript
                     </h1>
                     <p class=" fs-5 text-muted">
-                        Frequently asked questions (FAQ) are questions and answers that often follow a certain topic
-                        <br>a
-                        collection of common questions that tend to be asked over and over again on topics.
+                        ECMAScript 6 is abbreviated as ES6. ES6 is the sixth version of ECMAScript, released in 2015 and
+                        known as ECMAScript 2015.
                     </p>
                 </div>
                 <div class="container d-flex justify-content-center mb-5">
                     <div class="accordion accordion-flush col-10 " id="accordionFlushExample">
                         <div class="accordion-item m-1">
                             <h2 class="accordion-header border border-3 rounded-1" id="flush-headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                <button class="accordion-button collapsed fw-semibold fs-5" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
                                     aria-controls="flush-collapseOne">
-                                    what's are the difference between var, let, and const Variable in JavaScript?
+                                    1. what's are the difference between var, let, and const Variable in JavaScript?
                                 </button>
                             </h2>
                             <div id="flush-collapseOne" class="accordion-collapse collapse"
                                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">1.Flexbox is designed for one-dimensional layouts, and Grid
-                                    for two-dimensional layouts. <br>
-                                    2.The approach of CSS Grid is the layout first, while the Flexbox approach is
-                                    primarily the content. <br>
-                                    3.The Flexbox layout is best suited to application components and small-scale
-                                    layouts,
-                                    while the Grid layout is designed for larger-scale layouts that are not linear in
-                                    design.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item m-1">
-                            <h2 class="accordion-header border border-3 rounded-1" id="flush-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                    aria-controls="flush-collapseTwo">
-                                    What's are the difference between arrow functions and regular functions?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">For creating responsive, mobile-first projects on the web,
-                                    Bootstrap is the most widely used HTML, CSS, and JavaScript framework. On the other
-                                    hand, the most well-liked utility-first CSS framework for quick UI creation is
-                                    Tailwind CSS. <br> While Tailwind CSS supporters frequently praise the framework's
-                                    customizability, Bootstrap is well renowned for its responsiveness. The best option
-                                    for you will depend on your priorities and project requirements. </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item m-1">
-                            <h2 class="accordion-header border border-3 rounded-1" id="flush-headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                    aria-controls="flush-collapseThree">
-                                    What's are the difference between map, forEach, filter, find?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">There are majorly four elements in a box-model on which the
-                                    behavior of the box (element) relies. These are:
-                                    <br>
-                                    1.Content: This is the main content of the element. It can be text, links, images,
-                                    videos or any other content.
-                                    <br>
-                                    2.Padding: This is the gap between the content and the border (which is another
-                                    element) of the content.
-                                    <br>
-                                    3.Border: This can be visualized as a solid boundary of the content of the element.
-                                    <br>
-                                    4.Margin: This is the space that is maintained between various boxes on a particular
-                                    page i.e. the space between two borders.
+                                <div class="accordion-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr class="table-danger">
+                                                <th scope="col">#</th>
+                                                <th scope="col">var</th>
+                                                <th scope="col">let</th>
+                                                <th scope="col">const</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="fw-semibold">
+                                            <tr class="table-info">
+                                                <th scope="row">1</th>
+                                                <td>The scope of a var variable is functional scope.</td>
+                                                <td>The scope of a let variable is block scope.</td>
+                                                <td>The scope of a const variable is block scope.</td>
+                                            </tr>
+                                            <tr class="table-light">
+                                                <th scope="row">2</th>
+                                                <td>It can be updated and re-declared into the scope.</td>
+                                                <td>It can be updated but cannot be re-declared into the scope.</td>
+                                                <td>It cannot be updated or re-declared into the scope.</td>
+                                            </tr>
+                                            <<tr class="table-success">
+                                                <th scope="row">3</th>
+                                                <td>It can be declared without initialization.</td>
+                                                <td>It can be declared without initialization.</td>
+                                                <td>It cannot be declared without initialization.</td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item m-1">
-                            <h2 class="accordion-header border border-3 rounded-1 mb-5" id="flush-headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseFour" aria-expanded="false"
-                                    aria-controls="flush-collapseFour">
-                                    what's are the reason to use template string in javaScript?
+                            <h2 class="accordion-header border border-3 rounded-1" id="flush-headingTwo">
+                                <button class="accordion-button collapsed fw-semibold fs-5" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+                                    2. What's are the difference between arrow functions and regular functions?
                                 </button>
                             </h2>
-                            <div id="flush-collapseFour" class="accordion-collapse collapse"
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body fw-semibold">
+                                    <ul>
+                                        <li>
+                                            The first and most obvious difference between arrow functions and regular
+                                            functions
+                                            is their <span class="text-info">syntax</span> . Not only do they look
+                                            different,
+                                            but arrow functions also
+                                            provide
+                                            an implicit return shorthand and allow parenthesis around a single argument
+                                            to be
+                                            omitted.
+                                        </li>
+                                        <li>
+                                            Regular functions can be used as constructors, using the<span
+                                                class="text-info">new</span> keyword. Yet
+                                            another consequence of the lexical resolution of <span
+                                                class="text-info">this</span> inside arrow functions
+                                            is that they cannot be used as constructors. Using <span
+                                                class="text-info">new</span> with an arrow
+                                            function results in a <span class="text-info">TypeError</span>.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item m-1">
+                            <h2 class="accordion-header border border-3 rounded-1" id="flush-headingThree">
+                                <button class="accordion-button collapsed fw-semibold fs-5" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
+                                    aria-expanded="false" aria-controls="flush-collapseThree">
+                                    3. What's are the difference between map, forEach, filter, find?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse fw-semibold"
+                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <span class="text-warning">The main difference between map, forEach, filter, find
+                                        are:-</span>
+                                    <br>
+                                    1. <span class="text-info">.forEach()</span>, is used to execute the same code on
+                                    every element in an array but does not change the array and it returns undefined.
+                                    <br>
+                                    2.<span class="text-info">.map()</span>, executes the same code on every element in
+                                    an array and returns a new array with the updated elements.
+                                    <br>
+                                    3.<span class="text-info">.filter()</span>, checks every element in an array to see
+                                    if it meets a certain criteria and returns a new array with the elements that return
+                                    truthy for the criteria.
+                                    <br>
+                                    4.<span class="text-info">.find()</span>, checks every element in an array to see if
+                                    it meets a certain criteria and returns the first elements that return
+                                    truthy for the criteria.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item m-1">
+                            <h2 class="accordion-header border border-3 rounded-1" id="flush-headingFour">
+                                <button class="accordion-button collapsed fw-semibold fs-5" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                    aria-controls="flush-collapseFour">
+                                    4. what's are the reason to use template string in javaScript?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFour" class="accordion-collapse collapse fw-semibold"
                                 aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">The core characteristic of a semantic element is that it
-                                    clearly communicated its meaning to both the developer and the browser. These
-                                    elements clearly define its content. <br> <img
-                                        src="https://tse4.mm.bing.net/th?id=OIP.OmoDSTYMBz9gF1_jH9BFsgHaFk&pid=Api&P=0"
-                                        alt="">
+                                <div class="accordion-body"><span class="fw-bold text-info">String
+                                        Interpolation:-</span>
+                                    Template literals are strings constructed using the ` instead of “ or ‘.
+                                    To use placeholders within the string, you can add them using ${}. <br>
+                                    <span class="fw-bold text-info"> Embedded Expressions:-</span>
+                                    To use embedded expressions within the template literals, you need to add them using
+                                    ${}. By doing so, it makes the substitutions easier to use and less confusing. <br>
+                                    <span class="fw-bold text-info">Multi-line Strings:-</span>
+                                    For making a string multi-line using template literals, you need to make the content
+                                    itself within the ` as a multi-line.
                                 </div>
                             </div>
                         </div>
