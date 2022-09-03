@@ -1,14 +1,8 @@
-// sort data 
-const sortData = () => {
-
-}
-
-
 // loadData from API server 
 const loadData = async () => {
 
     try {
-        const res = await fetch('https://openapi.programming-hero.com/api/news/categories');
+        const res = await fetch("https://openapi.programming-hero.com/api/news/categories");
         const data = await res.json();
         showCategory(data.data.news_category);
     }
@@ -28,7 +22,7 @@ const showCategory = async (AllMenu) => {
         newsMenuDiv.classList.add('py-3');
         newsMenuDiv.innerHTML =
             `
-        <h6 class="btn border-0 fw-semibold"  onclick="countCategories('${menu.category_id}')" >${menu.category_name ? menu.category_name : "No Name"}</h6>
+        <h6 class="btn border-0 fw-semibold"  onclick="countCategories('${menu.category_id}','${menu.category_name}')" >${menu.category_name ? menu.category_name : "No Name"}</h6>
         `
         newsMenuField.appendChild(newsMenuDiv);
     });
@@ -46,24 +40,30 @@ const sppinerLoad = (isLoading) => {
     }
 }
 
+
 // create a function for count 
-const countCategories = async (id) => {
+const countCategories = async (id, name) => {
     sppinerLoad(true);
     try {
         const res = await fetch(`https://openapi.programming-hero.com/api/news/category/${id}`);
         const data = await res.json();
         const len = (data.data.length);
-        const countInfo = document.getElementById('count-Info');
-        countInfo.innerText =
+        const countInfoField = document.getElementById('count-Info');
+        countInfoField.innerHTML = '';
+        const countInfo = document.createElement('h4');
+        countInfo.classList.add('p-3');
+        countInfo.innerHTML =
             `
-        ${len} items found for this category...
+        <span class="text-sprimary">${len}</span> items found for this <span class="text-info" >${name}</span> category...
         `;
+        countInfoField.appendChild(countInfo);
         displayNews(data);
     }
     catch (error) {
         console.log(error);
     }
 }
+countCategories("08");
 // display the news in card 
 const displayNews = (data) => {
     const displayField = document.getElementById('display-news');
@@ -94,27 +94,27 @@ const displayNews = (data) => {
         cardField.innerHTML =
             `
         <div onclick="showModel('${_id}')" class="card my-5 w-100 " data-bs-toggle="modal" data-bs-target="#newsInModal">
-            <div class="row g-0 p-3">
+            <div class="row g-0 p-3" style="background-color: rgb(252, 222, 227)">
                 <div class="col-md-4 rounded">
-                    <img src="${image_url}" class="img-fluid rounded-start" alt="...">
+                    <img src="${image_url ? image_url : "Data Not Available"}" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title fw-bold">${title}</h5>
-                        <p class="card-text">${details.length > 350 ? details.slice(0, 350) + '...' : details}
+                        <h5 class="card-title fw-bold">${title ? title : "Data Not Available"}</h5>
+                        <p class="card-text fw-semibold">${details.length > 350 ? details.slice(0, 350) + '...' : details}
                         </p>
-                        <div class="container text-center">
-                            <div class="row">
-                                <div class="col-4">
+                        <div class="container text-center ">
+                            <div class="row ">
+                                <div class="col-4 d-flex align-items-end">
                                     <div class="row text-center">
-                                        <div class="col-4 text-start"><img class="rounded-circle w-75 h-75" src="${img ? img : "img Not Found"}<" alt=""></div>
+                                        <div class="col-4 text-start"><img class="rounded-circle w-75 h-75" src="${img ? img : "Date Not Available"}<" alt=""></div>
                                         <div class="col-8" style="margin-left: -30px;">
-                                            <h6 class="mb-0">${name ? name : 'Name Not Found'}</h6>
-                                            <p class="fs-6 mb-0">${published_date ? published_date : 'Date Not Found'}</p>
+                                            <h6 class="mb-0">${name ? name : 'Date Not Available'}</h6>
+                                            <p class="fs-6 mb-0">${published_date ? published_date : 'Date Not Available'}</p>
                                         </div>   
                                     </div>
                                 </div>
-                                <div class="col">${total_view ? total_view + "k" : "Data Not Found"}</div>
+                                <div class="col">${total_view ? total_view + "k" : "Data Not Available"}</div>
                                 <div class="col d-lg-block d-sm-none d-xs-none">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-star-fill text-warning" viewBox="0 0 16 16">
@@ -181,8 +181,8 @@ const modalDatadfd = (modalData) => {
     const modalBody = document.getElementById('modal-body');
     modalBody.innerHTML =
         `
-        <img src="${image_url}" class="img-fluid rounded-start" alt="...">
-        <p class="card-text">${details.length > 350 ? details.slice(0, 350) + '...' : details}
+        <img src="${image_url ? image_url : "Data Not Available"}" class="img-fluid rounded-start" alt="...">
+        <p class="card-text fw-semibold">${details.length > 350 ? details.slice(0, 350) + '...' : details}
                         </p>
         <div class="d-flex flex-row mb-3">
             <div class="p-2 ">
@@ -190,7 +190,7 @@ const modalDatadfd = (modalData) => {
                     <div class="h-50 w-50">
                         <img class="rounded-circle w-25 h-25" src="${img ? img : "Data Not Available"}<" alt="">
                     </div>
-                     <div class="ps-2">${name ? name : "Data Not Available"}</div>
+                     <div class="">${name ? name : "Data Not Available"}</div>
                 </div>    
             </div>
             <div class="p-2 d-flex align-items-center">
